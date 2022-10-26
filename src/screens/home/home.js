@@ -7,19 +7,19 @@ const DATA = [
         id: 1,
         name: 'Mach dieu khien led cau thang thong minh',
         price: 100000,
-        url: require('../../assets/images/product_1.png'),
+        url: require('../../../assets/images/product_1.png'),
     },
     {
         id: 2,
         name: 'Mach dieu khien led cau thang thong minh',
         price: 100000,
-        url: require('../../assets/images/product_1.png'),
+        url: require('../../../assets/images/product_1.png'),
     },
     {
         id: 3,
         name: 'Mach dieu khien led cau thang thong minh',
         price: 100000,
-        url: require('../../assets/images/product_1.png'),
+        url: require('../../../assets/images/product_1.png'),
     }
 ]
 const numberCollumns = 2;
@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation: { navigate } }) {
         <View style={styles.outerHome}>
             <Image
                 style={styles.slideImage}
-                source={require('../../assets/images/CTKM-1-1024x433.jpg')}
+                source={require('../../../assets/images/CTKM-1-1024x433.jpg')}
             />
             <View style={styles.listCategory}>
 
