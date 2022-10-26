@@ -69,7 +69,7 @@ export default function Login({ navigation: { navigate } }) {
                 </View>
             </View>
             <View>
-                <Text style={styles.textToRegister}>CREATE AN ACCOUNT</Text>
+                <Text style={styles.textToRegister} onPress={() => navigate('auth', { screen: 'register' })}>CREATE AN ACCOUNT</Text>
             </View>
         </View>
     );

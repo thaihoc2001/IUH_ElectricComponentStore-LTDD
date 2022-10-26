@@ -8,6 +8,7 @@ import UserScreen from '../screens/user/user';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CartScreen from '../screens/cart/cart';
 import Login from '../screens/login/login';
+import Register from '../screens/register/register';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -80,7 +81,7 @@ function AuthNavigation() {
   return (
     <Stack.Navigator options={{ headerShown: false }}>
       <Stack.Screen name="login" component={Login} options={{ headerShown: false }}/>
-      <Stack.Screen name="register" component={UserScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="register" component={Register} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
