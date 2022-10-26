@@ -1,9 +1,8 @@
 import { Button } from '@react-native-material/core';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
-import Icon from "@expo/vector-icons/FontAwesome5";
-
-
+import Icon from "@expo/vector-icons/FontAwesome";
+import IconFeather from "@expo/vector-icons/Feather";
 
 export default function Register({ navigation: { navigate } }) {
     return (
@@ -23,7 +22,7 @@ export default function Register({ navigation: { navigate } }) {
                 <SafeAreaView>
                     <View style={styles.inputGroup}>
                         <Icon
-                            name="user"
+                            name="user-o"
                             size={25}
                             color={'#000'}/>
                         <TextInput
@@ -32,8 +31,8 @@ export default function Register({ navigation: { navigate } }) {
                         />
                     </View>
                     <View style={styles.inputGroup}>
-                        <Icon
-                            name="envelope"
+                        <IconFeather
+                            name="mail"
                             size={25}
                             color={'#000'}/>
                         <TextInput
@@ -42,8 +41,8 @@ export default function Register({ navigation: { navigate } }) {
                         />
                     </View>
                     <View style={styles.inputGroup}>
-                        <Icon
-                            name="unlock"
+                        <IconFeather
+                            name="lock"
                             size={25}
                             color={'#000'}/>
                         <TextInput

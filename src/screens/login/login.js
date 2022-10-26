@@ -1,7 +1,8 @@
 import { Button } from '@react-native-material/core';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
-import Icon from "@expo/vector-icons/FontAwesome5";
+import Icon from "@expo/vector-icons/FontAwesome";
+import IconFeather from "@expo/vector-icons/Feather";
 
 
 
@@ -23,7 +24,7 @@ export default function Login({ navigation: { navigate } }) {
                 <SafeAreaView>
                     <View style={styles.inputGroup}>
                         <Icon
-                            name="user"
+                            name="user-o"
                             size={25}
                             color={'#000'}
                             onPress={() => navigate('layout', { screen: 'Home' })} Light/>
@@ -33,8 +34,8 @@ export default function Login({ navigation: { navigate } }) {
                         />
                     </View>
                     <View style={styles.inputGroup}>
-                        <Icon
-                            name="unlock"
+                        <IconFeather
+                            name="lock"
                             size={25}
                             color={'#000'}
                             onPress={() => navigate('layout', { screen: 'Home' })} Light/>
@@ -52,7 +53,7 @@ export default function Login({ navigation: { navigate } }) {
                 </View>
                 <View style={styles.groupIcon}>
                     <Icon
-                        name="facebook"
+                        name="facebook-square"
                         size={30}
                         olor={'#fff'}
                         onPress={() => navigate('layout', { screen: 'Home' })} />
