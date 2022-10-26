@@ -7,6 +7,7 @@ import OrderScreen from '../screens/orders/orders';
 import UserScreen from '../screens/user/user';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CartScreen from '../screens/cart/cart';
+import Login from '../screens/login/login';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -21,8 +22,8 @@ export default function Navigation() {
 
 function RootNavigator() {
     return (
-      <Stack.Navigator>
-        <Stack.Screen name="tab" component={MyTabs} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName='layout'>
+        <Stack.Screen name="layout" component={MyTabs} options={{ headerShown: false }} />
         <Stack.Screen name="auth" component={AuthNavigation} options={{ headerShown: false }} />
       </Stack.Navigator>
     );
@@ -31,7 +32,7 @@ function RootNavigator() {
 
 function MyTabs() {
   return (
-    <Tab.Navigator screenOptions={{
+    <Tab.Navigator initialRouteName='Home' screenOptions={{
       tabBarActiveTintColor: '#F16529',
       headerTintColor: '#F16529',
     }}>
@@ -77,8 +78,9 @@ function MyTabs() {
 
 function AuthNavigation() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Cart" component={CartScreen} />
+    <Stack.Navigator options={{ headerShown: false }}>
+      <Stack.Screen name="login" component={Login} options={{ headerShown: false }}/>
+      <Stack.Screen name="register" component={UserScreen} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
