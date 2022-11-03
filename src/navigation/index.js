@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CartScreen from '../screens/cart/cart';
 import Login from '../screens/login/login';
 import Register from '../screens/register/register';
+import ProductDetail from '../screens/product-details/product-detail';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,7 @@ function RootNavigator() {
       <Stack.Navigator initialRouteName='layout'>
         <Stack.Screen name="layout" component={MyTabs} options={{ headerShown: false }} />
         <Stack.Screen name="auth" component={AuthNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name="product" component={ProductNavigation} options={{ headerShown: false }} />
       </Stack.Navigator>
     );
   }
@@ -82,6 +84,14 @@ function AuthNavigation() {
     <Stack.Navigator options={{ headerShown: false }}>
       <Stack.Screen name="login" component={Login} options={{ headerShown: false }}/>
       <Stack.Screen name="register" component={Register} options={{ headerShown: false }}/>
+    </Stack.Navigator>
+  );
+}
+
+function ProductNavigation() {
+  return (
+    <Stack.Navigator options={{ headerShown: false }}>
+      <Stack.Screen name="productDetail" component={ProductDetail} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
