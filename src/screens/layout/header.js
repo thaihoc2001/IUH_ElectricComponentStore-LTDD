@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
-import Icon from "@expo/vector-icons/FontAwesome5";
+import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 export default function HeaderProduct({ navigate, goBack }) {
     return (
@@ -18,13 +19,27 @@ export default function HeaderProduct({ navigate, goBack }) {
     )
 }
 
+export function HeaderHome () {
+    return (
+        <View style={[styles.header]}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', height: '100%', marginHorizontal: 20 }}>
+                <TouchableOpacity style={{width: 50,height: 50, borderColor: '#DCDDE3', borderWidth: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: 15}}>
+                    <FontAwesome5 name="bars" size={24} color="#7E7E7F" />
+                </TouchableOpacity>
+                <Text style={{ fontSize: 20, fontWeight: '600' }}>Home</Text>
+                <TouchableOpacity style={{width: 50,height: 50, borderColor: '#DCDDE3', borderWidth: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: 15}}>
+                    <FontAwesome name="search" size={24} color="#7E7E7F" />
+                </TouchableOpacity>
+            </View>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
     header: {
-        marginTop: '10%',
+        marginTop: '12%',
         width: '100%',
         height: '5%',
-        borderBottomColor: '#C4C4C4',
-        borderBottomWidth: 2,
     },
     iconCart: {
         marginLeft: '4%',

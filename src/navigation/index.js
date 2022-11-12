@@ -10,11 +10,15 @@ import CartScreen from '../screens/cart/cart';
 import Login from '../screens/login/login';
 import Register from '../screens/register/register';
 import ProductDetail from '../screens/product-details/product-detail';
+import { AntDesign } from '@expo/vector-icons'; 
+import { Octicons } from '@expo/vector-icons'; 
+import { SimpleLineIcons } from '@expo/vector-icons'; 
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-export default function Navigation() { 
+export default function Navigation() {
   return (
     <NavigationContainer>
       <RootNavigator />
@@ -23,55 +27,64 @@ export default function Navigation() {
 }
 
 function RootNavigator() {
-    return (
-      <Stack.Navigator initialRouteName='layout'>
-        <Stack.Screen name="layout" component={MyTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="auth" component={AuthNavigation} options={{ headerShown: false }} />
-        <Stack.Screen name="product" component={ProductNavigation} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    );
-  }
-  
+  return (
+    <Stack.Navigator initialRouteName='layout'>
+      <Stack.Screen name="layout" component={MyTabs} options={{ headerShown: false }} />
+      <Stack.Screen name="auth" component={AuthNavigation} options={{ headerShown: false }} />
+      <Stack.Screen name="product" component={ProductNavigation} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
+
 
 function MyTabs() {
+  
   return (
     <Tab.Navigator initialRouteName='Home' screenOptions={{
       tabBarActiveTintColor: '#F16529',
       headerTintColor: '#F16529',
-    }}>
+      tabBarShowLabel: false,
+      tabBarIconStyle: {
+        fontSize: 40,
+      },
+      tabBarStyle: {
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+      },
+      headerShown: false,
+    }}
+    
+    >
       <Tab.Screen name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: 'Home',
+
           tabBarIcon: ({ color, size }) => (
-            <Icon name="home" size={size} color={color} />
+            <AntDesign name="appstore-o" size={30} color={color} />
           ),
         }}
       ></Tab.Screen>
       <Tab.Screen name="Order"
         component={OrderScreen}
         options={{
-          tabBarLabel: 'Order',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="clipboard-list" size={size} color={color} />
+            <Octicons name="heart" size={30} color={color} />
           ),
         }}
       ></Tab.Screen>
       <Tab.Screen name="Cart"
         component={CartScreen}
         options={{
-          tabBarLabel: 'User',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="cart-plus" size={size} color={color} />
+            <SimpleLineIcons name="handbag" size={30} color={color} />
           ),
         }}
       ></Tab.Screen>
       <Tab.Screen name="User"
         component={UserScreen}
         options={{
-          tabBarLabel: 'User',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="user" size={size} color={color} />
+            <FontAwesome5 name="user" size={30} color={color} />
           ),
         }}
       ></Tab.Screen>
@@ -82,8 +95,8 @@ function MyTabs() {
 function AuthNavigation() {
   return (
     <Stack.Navigator options={{ headerShown: false }}>
-      <Stack.Screen name="login" component={Login} options={{ headerShown: false }}/>
-      <Stack.Screen name="register" component={Register} options={{ headerShown: false }}/>
+      <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
+      <Stack.Screen name="register" component={Register} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -91,7 +104,7 @@ function AuthNavigation() {
 function ProductNavigation() {
   return (
     <Stack.Navigator options={{ headerShown: false }}>
-      <Stack.Screen name="productDetail" component={ProductDetail} options={{ headerShown: false }}/>
+      <Stack.Screen name="productDetail" component={ProductDetail} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
