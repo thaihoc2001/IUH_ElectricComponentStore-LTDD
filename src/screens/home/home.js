@@ -1,87 +1,8 @@
-import { Button } from '@react-native-material/core';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Slideshow from 'react-native-image-slider-show';
 import { HeaderHome } from '../layout/header';
-import { Octicons } from '@expo/vector-icons'; 
-
-const DATA = [
-    {
-        id: 1,
-        name: 'Iphone 11',
-        price: 500,
-        url: require('../../../assets/images/iphone-11-trang.jpg'),
-    },
-    {
-        id: 2,
-        name: 'Galaxy S22 Ultra Burgundy',
-        price: 800,
-        url: require('../../../assets/images/Galaxy-S22-Ultra-Burgundy.jpg'),
-    },
-    {
-        id: 3,
-        name: 'Samsum Glaxy Zip 4',
-        price: 1000,
-        url: require('../../../assets/images/samsung-galaxy-z-flip4.jpg'),
-    },
-    {
-        id: 4,
-        name: 'Mach dieu khien led cau thang thong minh',
-        price: 400,
-        url: require('../../../assets/images/iphone-11-trang.jpg'),
-    },
-    {
-        id: 5,
-        name: 'Mach dieu khien led cau thang thong minh',
-        price: 1010,
-        url: require('../../../assets/images/iphone-11-trang.jpg'),
-    }
-]
-
-const DATACATEGORY = [
-    {
-        id: 1,
-        name: 'Phone',
-        url: require('../../../assets/images/icon-phone.png'),
-    },
-    {
-        id: 2,
-        name: 'Laptop',
-        url: require('../../../assets/images/icon-laptop.png'),
-    },
-    {
-        id: 3,
-        name: 'watch',
-        url: require('../../../assets/images/icon-watch.png'),
-    },
-    {
-        id: 4,
-        name: 'Headphone',
-        url: require('../../../assets/images/icon-headphone.png'),
-    },
-    {
-        id: 3,
-        name: 'Accessory',
-        url: require('../../../assets/images/icon-tablet.png'),
-    }
-]
-const numberCollumns = 2;
-const Item = ({ item, navigate }) => {
-    return (
-        <TouchableOpacity style={styles.item} onPress={() => navigate('product', { screen: 'productDetail', params: { item: item } })}>
-            <Image source={item.url} style={styles.image} />
-            <View style={styles.itemContent}>
-                <View>
-                    <Text style={styles.itemName} numberOfLines={2}>{item.name}</Text>
-                    <Text style={styles.itemPrice}>${item.price}</Text>
-                </View>
-                <TouchableOpacity>
-                    <Octicons name="heart" size={30} color="black"/>
-                </TouchableOpacity>
-            </View>
-        </TouchableOpacity>
-    )
-}
+import { FlatListItem } from '../../components/listItem';
+import { LIST_PRODUCT, DATACATEGORY } from '../../fake-data/store';
 
 export default function HomeScreen({ navigation: { navigate } }) {
     const renderItem = ({ item }) => {
@@ -118,13 +39,7 @@ export default function HomeScreen({ navigation: { navigate } }) {
                 </ScrollView>
             </View>
             <View style={styles.products}>
-                <FlatList
-                    data={DATA}
-                    renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
-                    numColumns={numberCollumns}
-                >
-                </FlatList>
+                <FlatListItem item={LIST_PRODUCT} numColumns={2}></FlatListItem>
             </View>
         </View>
     );
