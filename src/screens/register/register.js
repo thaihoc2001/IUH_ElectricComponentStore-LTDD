@@ -15,7 +15,7 @@ export default function Register({ navigation: { navigate } }) {
                     onPress={() => navigate('layout', { screen: 'Home' })} />
             </View>
             <View style={styles.logo}>
-                <Image source={require('../../../assets/images/logo.png')} style={styles.image} />
+                <Image source={require('../../../assets/images/LogoHomie.png')} style={styles.image} />
             </View>
             <View style={styles.groupFormLogin}>
                 <Text style={styles.titleForm}>REGISTER</Text>
@@ -51,7 +51,7 @@ export default function Register({ navigation: { navigate } }) {
                         />
                     </View>
                 </SafeAreaView>
-                <TouchableOpacity style={[styles.btnLogin, styles.btn]}>
+                <TouchableOpacity style={[styles.btnLogin, styles.btn]} onPress={() => navigate('auth', { screen: 'login' })}>
                     <Text style={styles.pressableText}>Register</Text>
                 </TouchableOpacity>
             </View>
@@ -64,7 +64,7 @@ export default function Register({ navigation: { navigate } }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F7452E',
+        backgroundColor: '#FFFFFF',
         height: '100%'
     },
     header: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         height: '30%',
     },
     btn: {
-        backgroundColor: '#CD104D',
+        backgroundColor: '#F16529',
         marginHorizontal: 20,
         marginVertical: 20,
         paddingVertical: 15,
@@ -94,8 +94,17 @@ const styles = StyleSheet.create({
     groupFormLogin: {
         backgroundColor: '#fff',
         height: '45%',
-        margin: 35,
+        marginVertical: 30,
+        marginHorizontal: 20,
         borderRadius: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5.00,
+        elevation: 5,
     },
     inputGroup: {
         borderWidth: 1,
@@ -123,7 +132,7 @@ const styles = StyleSheet.create({
     textToLogin: {
         fontSize: 20,
         textAlign: 'center',
-        color: '#fff',
+        color: '#000',
         fontWeight: 'normal',
     },
     groupIcon: {

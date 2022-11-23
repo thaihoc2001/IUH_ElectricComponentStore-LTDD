@@ -14,9 +14,14 @@ import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons'; 
 import { SimpleLineIcons } from '@expo/vector-icons'; 
 import { FontAwesome5 } from '@expo/vector-icons'; 
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import FavoriteScreen from '../screens/favorite/favorite';
+import OrderInforScreen from '../screens/order-info/order-info';
+import OrderComplete from '../screens/order-complete/order-complete';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function Navigation() {
   return (
@@ -28,7 +33,8 @@ export default function Navigation() {
 
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName='layout'>
+    <Stack.Navigator initialRouteName='auth'>
+      <Stack.Screen name="sidebar" component={SideBar} options={{ headerShown: false }} />
       <Stack.Screen name="layout" component={MyTabs} options={{ headerShown: false }} />
       <Stack.Screen name="auth" component={AuthNavigation} options={{ headerShown: false }} />
       <Stack.Screen name="product" component={ProductNavigation} options={{ headerShown: false }} />
@@ -36,6 +42,13 @@ function RootNavigator() {
   );
 }
 
+function SideBar() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+    </Drawer.Navigator>
+  )
+}
 
 function MyTabs() {
   
@@ -64,8 +77,8 @@ function MyTabs() {
           ),
         }}
       ></Tab.Screen>
-      <Tab.Screen name="Order"
-        component={OrderScreen}
+      <Tab.Screen name="Favorite"
+        component={FavoriteScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Octicons name="heart" size={30} color={color} />
@@ -73,7 +86,7 @@ function MyTabs() {
         }}
       ></Tab.Screen>
       <Tab.Screen name="Cart"
-        component={CartScreen}
+        component={OrderNavigation}
         options={{
           tabBarIcon: ({ color, size }) => (
             <SimpleLineIcons name="handbag" size={30} color={color} />
@@ -97,6 +110,16 @@ function AuthNavigation() {
     <Stack.Navigator options={{ headerShown: false }}>
       <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="register" component={Register} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
+
+function OrderNavigation() {
+  return (
+    <Stack.Navigator options={{ headerShown: false }}>
+      <Stack.Screen name="cart" component={CartScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="infor-order" component={OrderInforScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="order-complete" component={OrderComplete} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
