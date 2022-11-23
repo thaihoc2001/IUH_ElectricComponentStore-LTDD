@@ -7,6 +7,7 @@ import Icon from "@expo/vector-icons/FontAwesome5";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Navigation from './src/navigation';
 import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 
 export default function App() {
   return (
