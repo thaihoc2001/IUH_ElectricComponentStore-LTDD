@@ -3,13 +3,15 @@ import Slideshow from 'react-native-image-slider-show';
 import { HeaderHome } from '../layout/header';
 import { FlatListItem } from '../../components/listItem';
 import { LIST_PRODUCT, DATACATEGORY } from '../../fake-data/store';
+import { React, useState } from 'react';
 
 export default function HomeScreen({ navigation: { navigate } }) {
-    const renderItem = ({ item }) => {
-        return (
-            <Item item={item} navigate={navigate} />
-        );
-    };
+    let [listProduct, setListProduct] = useState(LIST_PRODUCT);
+    const filterByCategory = (category) => {
+        listProduct = LIST_PRODUCT.filter((item) => item.categoryId === category.id);
+        setListProduct(listProduct);
+    }
+
     return (
         <View style={styles.outerHome}>
             <HeaderHome></HeaderHome>
@@ -28,7 +30,7 @@ export default function HomeScreen({ navigation: { navigate } }) {
                         DATACATEGORY.map((item, index) => {
                             return (
                                 <View style={styles.category}>
-                                    <TouchableOpacity style={styles.categoryItem}>
+                                    <TouchableOpacity style={styles.categoryItem} onPress={() => filterByCategory(item)}>
                                         <Image source={item.url} style={styles.categoryImage} />
                                         <Text style={styles.categoryName}>{item.name}</Text>
                                     </TouchableOpacity>
@@ -39,7 +41,7 @@ export default function HomeScreen({ navigation: { navigate } }) {
                 </ScrollView>
             </View>
             <View style={styles.products}>
-                <FlatListItem item={LIST_PRODUCT} numColumns={2}></FlatListItem>
+                <FlatListItem item={listProduct} numColumns={2}></FlatListItem>
             </View>
         </View>
     );

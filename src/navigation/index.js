@@ -116,7 +116,7 @@ function AuthNavigation() {
 
 function OrderNavigation() {
   return (
-    <Stack.Navigator options={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName='cart' options={{ headerShown: false }}>
       <Stack.Screen name="cart" component={CartScreen} options={{ headerShown: false }} />
       <Stack.Screen name="infor-order" component={OrderInforScreen} options={{ headerShown: false }} />
       <Stack.Screen name="order-complete" component={OrderComplete} options={{ headerShown: false }} />

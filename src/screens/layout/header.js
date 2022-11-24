@@ -87,7 +87,7 @@ export function HeaderHome() {
     return (
         <View style={[styles.header]}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', height: '100%', marginHorizontal: 20 }}>
-                <TouchableOpacity onPress={() => navigation.navigate('sidebar', { screen: 'Home1' })} style={{ width: 50, height: 50, borderColor: '#DCDDE3', borderWidth: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: 15 }}>
+                <TouchableOpacity style={{ width: 50, height: 50, borderColor: '#DCDDE3', borderWidth: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: 15 }}>
                     <FontAwesome5 name="bars" size={24} color="#7E7E7F" />
                 </TouchableOpacity>
                 <Text style={{ fontSize: 20, fontWeight: '600' }}>Home</Text>
