@@ -21,7 +21,6 @@ import OrderComplete from '../screens/order-complete/order-complete';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 
 export default function Navigation() {
   return (
