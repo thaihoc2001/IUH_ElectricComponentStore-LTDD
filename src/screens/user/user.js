@@ -5,14 +5,14 @@ import { React, useState } from 'react';
 import { HeaderUser } from '../layout/header';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function UserScreen({ navigation: { navigate } }) {
+export default function UserScreen({ navigation: { navigate, goBack } }) {
   const [name, onChangeName] = useState("Nguyễn Thái Học");
   const [mail, onChangeMail] = useState("thaihoc.forwork@gmail.com");
   const [phone, onChangePhone] = useState("012346789");
 
   return (
     <View style={styles.container}>
-      <HeaderUser />
+      <HeaderUser goBack={goBack}/>
       <View style={{ flexDirection: 'row', justifyContent: 'center', marginVertical: 30 }}>
         <Image source={require('../../../assets/images/avatar.png')} style={{ width: 200, height: 200, borderRadius: '100%' }} />
       </View>
